@@ -4,9 +4,9 @@
 angular.
   module('phoneDetail').
   component('phoneDetail', {
-    templateUrl: './app/ng1/phone-detail/phone-detail.template.html',
+    templateUrl: './phone-detail/phone-detail.template.ng1.html',
     controller: ['$routeParams', 'Phone',
-      function PhoneDetailController($routeParams, Phone) {
+      function PhoneDetailController(this: any, $routeParams, Phone) {
         var self = this;
         self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
           self.setImage(phone.images[0]);

@@ -8,6 +8,8 @@
 
 <p>{{$ctrl.phone.description}}</p>
 
+<app-phone-thumb></app-phone-thumb>
+
 <ul class="phone-thumbs">
   <li ng-repeat="img in $ctrl.phone.images">
     <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" />

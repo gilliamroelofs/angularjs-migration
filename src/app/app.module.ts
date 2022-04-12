@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ApplicationRef, DoBootstrap, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 
@@ -12,16 +13,15 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UpgradeModule
+    UpgradeModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: []
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(
-    private upgrade: UpgradeModule) {}
-  
-    ngDoBootstrap() {
-      this.upgrade.bootstrap(document.documentElement, ['phonecatApp']);
-    }
+export class AppModule implements DoBootstrap {
+  constructor() {}
+
+  ngDoBootstrap(appRef: ApplicationRef): void {
+  }
 }

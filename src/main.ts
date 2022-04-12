@@ -5,13 +5,13 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import * as angular from 'angular';
-import { setAngularJSGlobal } from '@angular/upgrade/static';
+import { setAngularJSGlobal, UpgradeModule } from '@angular/upgrade/static';
 
 // LOAD ANGULARJS
-import ng1App from './app/ng1/app.module.ng1';
-import ng1AppConfig from './app/ng1/app.config.ng1';
+import phonecatAppModule from './app/app.module.ng1';
+import phonecatAppModuleConfig from './app/app.config.ng1';
 
-ng1AppConfig(ng1App);
+phonecatAppModuleConfig(phonecatAppModule);
 
 setAngularJSGlobal(angular);
 
@@ -19,5 +19,14 @@ if (environment.production) {
   enableProdMode();
 }
 
+// platformBrowserDynamic().bootstrapModule(AppModule)
+//   .catch(err => console.error(err));
+
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  .then(platformRef => {
+    console.log("Bootstrapping in Hybrid mode with Angular & AngularJS");
+    const upgrade = platformRef.injector.get(UpgradeModule);
+
+    upgrade.bootstrap(document.body, ['phonecatApp']);
+  })
+  .catch(err => console.error(err));;

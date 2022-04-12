@@ -29,12 +29,20 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/app/ng1"
+              {
+                "glob": "**/*.ng1.html",
+                "input": "src/app/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+               "angular",
+               "angular-resource"
+            ]
           },
           "configurations": {
             "production": {

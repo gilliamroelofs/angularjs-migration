@@ -1,6 +1,4 @@
-'use strict';
-
-export default function (appModule) {
+export default function phonecatAppModuleConfig(appModule) {
   appModule.config(['$routeProvider',
     function config($routeProvider) {
       $routeProvider.

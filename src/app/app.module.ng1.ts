@@ -14,6 +14,8 @@ import './phone-detail/phone-detail.component.ng1';
 import './phone-list/phone-list.module.ng1';
 import './phone-list/phone-list.component.ng1';
 
+import * as angular from 'angular';
+
 // Define the `phonecatApp` module
 export default angular.module('phonecatApp', [
   'ngAnimate',
